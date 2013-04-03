@@ -7,8 +7,8 @@ describe "AuthenticationPages" do
 	describe "signin page" do
 		before { visit signin_path }
 
-		it { should have_signin_h1 }
-		it { should have_signin_title }
+		it { should have_h1_signin }
+		it { should have_title_signin }
 	end
 
 	describe "signin" do
@@ -17,7 +17,7 @@ describe "AuthenticationPages" do
 		describe "with invalid information" do
 			before { click_button "Sign In" }
 
-			it { should have_signin_title }
+			it { should have_title_signin }
 			it { should have_error_message }
 
 			describe "after visiting another page" do
@@ -31,9 +31,9 @@ describe "AuthenticationPages" do
 				
 			before { valid_signin(user) }
 
-			it { should have_username_title }
-			it { should have_profile_link }
-			it { should have_signout_link }
+			it { should have_title_username }
+			it { should have_link_profile }
+			it { should have_link_signout }
 			it { should_not have_signin_link }
 
 			describe "followed by signout" do
